@@ -24,7 +24,7 @@ public class CategoriaUsuarioController {
     CategoriaUsuarioService categoriaUsuarioService;
 
     @PostMapping
-    public ResponseEntity<CategoriaUsuario> criaCategoria(@RequestBody CategoriaUsuario categoriaUsuario) {
+    public ResponseEntity<CategoriaUsuario> criaCategoria(@RequestBody final CategoriaUsuario categoriaUsuario) {
         return ResponseEntity.ok(categoriaUsuarioService.salvar(categoriaUsuario));
     }
 
@@ -34,18 +34,18 @@ public class CategoriaUsuarioController {
     }
 
     @GetMapping("/{idCategoria}")
-    public ResponseEntity<?> listarCategoriaUsuarioPorUsuario(@PathVariable("idCategoria") long idCategoria){
+    public ResponseEntity<?> listarCategoriaUsuarioPorUsuario(@PathVariable("idCategoria") final long idCategoria) {
         return ResponseEntity.ok(categoriaUsuarioService.listarPorIdCategoria(idCategoria));
     }
 
     @PutMapping
-    public ResponseEntity<CategoriaUsuario> atualizarCategoria(@RequestBody CategoriaUsuario categoriaUsuario){
+    public ResponseEntity<CategoriaUsuario> atualizarCategoria(@RequestBody final CategoriaUsuario categoriaUsuario) {
         categoriaUsuarioService.atualizar(categoriaUsuario);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{idCategoria}")
-    public ResponseEntity<CategoriaUsuario> deletarCategoria(@PathVariable("idCategoria") long idCategoria){
+    public ResponseEntity<CategoriaUsuario> deletarCategoria(@PathVariable("idCategoria") final long idCategoria) {
         categoriaUsuarioService.deletar(idCategoria);
         return ResponseEntity.ok().build();
     }
