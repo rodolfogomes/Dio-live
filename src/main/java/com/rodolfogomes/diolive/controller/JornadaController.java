@@ -1,6 +1,5 @@
 package com.rodolfogomes.diolive.controller;
 
-import com.rodolfogomes.diolive.model.CategoriaUsuario;
 import com.rodolfogomes.diolive.model.Jornada;
 import com.rodolfogomes.diolive.service.JornadaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ public class JornadaController {
    JornadaService jornadaService;
 
     @PostMapping
-    public ResponseEntity<Jornada> criaJornada(@RequestBody final Jornada jornada) {
+    public ResponseEntity<Jornada> criaJornada(@RequestBody final  Jornada jornada) {
         return ResponseEntity.ok(jornadaService.salvar(jornada));
     }
 
@@ -32,13 +31,13 @@ public class JornadaController {
     }
 
     @PutMapping
-    public ResponseEntity<CategoriaUsuario> atualizarJornada(@RequestBody final Jornada jornada) {
+    public ResponseEntity<Jornada> atualizarJornada(@RequestBody final Jornada jornada) {
         jornadaService.atualizar(jornada);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{idjornada}")
-    public ResponseEntity<CategoriaUsuario> deletarJornada(@PathVariable("idjornada") final long idJornada) {
+    public ResponseEntity<Jornada> deletarJornada(@PathVariable("idjornada") final long idJornada) {
         jornadaService.deletar(idJornada);
         return ResponseEntity.ok().build();
     }
